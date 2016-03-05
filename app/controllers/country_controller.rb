@@ -14,7 +14,7 @@ class CountryController < ApplicationController
       if @country.save
         @country
       else
-        @country.errors, status: :unprocessable_entity
+        @country.errors, status= 'unprocessable_entity'
       end
   end
 
