@@ -16,34 +16,24 @@ ActiveRecord::Schema.define(version: 20160223144058) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
-    t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "areas", force: :cascade do |t|
     t.integer  "country_id"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  add_index "areas", ["country_id"], name: "index_areas_on_country_id", using: :btree
 
   create_table "counties", force: :cascade do |t|
     t.integer  "area_id"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  add_index "counties", ["area_id"], name: "index_counties_on_area_id", using: :btree
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "towns", force: :cascade do |t|
@@ -52,11 +42,9 @@ ActiveRecord::Schema.define(version: 20160223144058) do
     t.integer  "radius"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  add_index "towns", ["county_id"], name: "index_towns_on_county_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -81,7 +69,6 @@ ActiveRecord::Schema.define(version: 20160223144058) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["town_id"], name: "index_users_on_town_id", using: :btree
 
   add_foreign_key "areas", "countries"
   add_foreign_key "counties", "areas"
