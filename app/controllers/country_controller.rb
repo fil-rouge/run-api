@@ -9,7 +9,7 @@ class CountryController < ApplicationController
   end
 
   def create
-    # crate a create.json.jbuilder
+    # TODO create a create.json.jbuilder
     @country = Record.new(country_params)
       if @country.save
         @country

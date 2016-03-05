@@ -6,13 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-  # clean
-  User.delete_all
-  Country.delete_all
-  Area.delete_all
-  User.delete_all
+  # clean db
   Town.delete_all
-
+  County.delete_all
+  Area.delete_all
+  Country.delete_all
+  User.delete_all
 
   # Users
   user = User.create(email: 'test@test.com', password: 'password',name: 'name',surname: 'surname')
@@ -28,8 +27,6 @@
 
   # Counties
   county = County.create(name: 'rhone', area_id: area.id)
-
-
 
   # Towns
   lyon = Town.create(name: 'Lyon', radius: 10, latitude: 45.750000 , longitude: 4.850000, county_id: county.id)
