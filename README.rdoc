@@ -1,4 +1,10 @@
 #### testing devise with curl
+_create a new account_
 ```
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://localhost:3000/users -d "{\"user\":{\"email\":\"test@test.com\",\"password\":\"password\"}}"
+```
+
+_create a new session_
+```
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://localhost:3000/users/sign_in -d "{\"user\":{\"email\":\"test1@test1.com\",\"password\":\"password\"}}"
 ```
