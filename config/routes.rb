@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'sessions' }
+  resources :country
+  resources :areas
+  resources :county
+  resources :town
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
