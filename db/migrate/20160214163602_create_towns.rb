@@ -1,4 +1,4 @@
-class CreateTowns < ActiveRecord::Migration[5.0]
+class CreateTowns < ActiveRecord::Migration
   def change
     create_table :towns do |t|
       t.references :county, foreign_key: true

@@ -1,4 +1,4 @@
-class CreateCounties < ActiveRecord::Migration[5.0]
+class CreateCounties < ActiveRecord::Migration
   def change
     create_table :counties do |t|
       t.references :area, foreign_key: true
