@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
+
   def create
-    p 'debug-coucou'
     respond_to do |format|
       format.json do
         self.resource = warden.authenticate!(auth_options)
@@ -10,6 +10,9 @@ class SessionsController < Devise::SessionsController
           email: self.resource.email
         }
         render json: data, status: 201
+      end
+      format.html do
+        super
       end
     end
   end
