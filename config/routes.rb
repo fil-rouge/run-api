@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
+
   resources :country
+
+  resources :users do
+    resources :parcours do
+      resource :tags
+    end
+  end
   # resources :areas
   # resources :county
   # resources :town

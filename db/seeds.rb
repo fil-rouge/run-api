@@ -13,6 +13,21 @@
   Country.delete_all
   User.delete_all
 
+
+  #  Tags
+  tag = Tag.create(value: "VilleDesLumieres")
+
+  # Points
+  p1 = Point.create(latitude: 1, longitude: 1)
+  p2 = Point.create(latitude: 2, longitude: 2)
+  p3 = Point.create(latitude: 3, longitude: 3)
+  p4 = Point.create(latitude: 4, longitude: 4)
+
+  # parcours
+  parcours = Parcour.create(distance: "400", note: 4, points: [p1,p2,p3,p4], tags: [tag])
+
+
+
   # Users
   user = User.create(email: 'test@test.com', password: 'password',name: 'name',surname: 'surname')
 
