@@ -11,7 +11,11 @@
   County.delete_all
   Area.delete_all
   Country.delete_all
+  Tag.delete_all
+  Point.delete_all
+  Parcour.delete_all
   User.delete_all
+
 
 
   #  Tags
@@ -25,8 +29,6 @@
 
   # parcours
   parcours = Parcour.create(distance: "400", note: 4, points: [p1,p2,p3,p4], tags: [tag])
-
-
 
   # Users
   user = User.create(email: 'test@test.com', password: 'password',name: 'name',surname: 'surname')

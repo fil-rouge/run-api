@@ -24,5 +24,14 @@ module RunApi
     config.active_record.raise_in_transactional_callbacks = true
     config.api_only = false
     config.middleware.use ActionDispatch::Flash
+
+    # in config/application.rb
+    config.action_dispatch.default_headers = {
+        #  we shoudl change this with our MVVM server name
+        #  TODO : CHANGE * HERE
+        # 'Access-Control-Allow-Origin' => 'http://my-web-service-consumer-site.com',
+        'Access-Control-Allow-Origin' => '*',
+        'Access-Control-Request-Method' => %w{GET POST OPTIONS UPDATE DELETE}.join(",")
+    }
   end
 end
