@@ -10,7 +10,6 @@ class SessionsController < Devise::SessionsController
             email: self.resource.email
           }
         }
-        byebug
         render json: data, status: 201
       end
       format.html do
