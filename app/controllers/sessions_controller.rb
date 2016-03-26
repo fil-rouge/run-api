@@ -6,14 +6,12 @@ class SessionsController < Devise::SessionsController
         sign_in(resource_name, resource)
         data = {
           data: {
+            id: self.resource.id
             token: self.resource.authentication_token,
             email: self.resource.email
           }
         }
         render json: data, status: 201
-      end
-      format.html do
-        super
       end
     end
   end
