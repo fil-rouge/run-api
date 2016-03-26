@@ -1,5 +1,4 @@
 class SessionsController < Devise::SessionsController
-  respond_to :json, :js
   def create
     respond_to do |format|
       format.json do
