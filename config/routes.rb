@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/users/sign_in' => 'sessions#create'
   devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
   resources :country

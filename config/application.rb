@@ -31,7 +31,7 @@ module RunApi
         #  TODO : CHANGE * HERE
         # 'Access-Control-Allow-Origin' => 'http://my-web-service-consumer-site.com',
         'Access-Control-Allow-Origin' => '*',
-        'Access-Control-Request-Method' => %w{GET POST OPTIONS UPDATE DELETE}.join(",")
+        'Access-Control-Request-Method' => %w{GET POST PUT OPTIONS UPDATE DELETE}.join(",")
     }
   end
 end
