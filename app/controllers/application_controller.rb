@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # before_filter :authenticate_user_from_token! # =>  only user authenticated can have acces to that controller
+  before_filter :authenticate_user_from_token! # =>  only user authenticated can have acces to that controller
   # before_filter :check_format
 
   protect_from_forgery with: :null_session # => stateless json api
