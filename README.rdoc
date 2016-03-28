@@ -1,4 +1,6 @@
 #### testing devise with curl
+
+
 _create a new account_
 ```
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://localhost:3000/users -d "{\"user\":{\"email\":\"test@test.com\",\"password\":\"password\"}}"
@@ -9,8 +11,8 @@ _create a new session_
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://localhost:3000/users/sign_in -d "{\"user\":{\"email\":\"test1@test1.com\",\"password\":\"password\"}}"
 ```
 
+_get a user_
+```
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 14' -H 'token: Y9kXv52Qify8TK4xHw36' -X GET https://orunginal-api.herokuapp.com/users/14 -d "{\"user\":{\"email\":\"test@test.com\",\"password\":\"password\"}}"
+```
 
-get a user
-```
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 14' -H 'token: Y9kXv52Qify8TK4xHw36' -X GET localhost:3000/users/14 -d "{\"user\":{\"email\":\"test@test.com\",\"password\":\"password\"}}"
-```
