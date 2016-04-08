@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :parcours
   has_many :groups
+  has_many :circuits
 
   # validates :name,
   #           :presence => true,

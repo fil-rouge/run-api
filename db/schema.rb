@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408202333) do
+ActiveRecord::Schema.define(version: 20160408212405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(version: 20160408202333) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "circuits", force: :cascade do |t|
+    t.integer  "users_id"
+    t.integer  "points_id"
+    t.integer  "distance"
+    t.integer  "note"
+    t.datetime "date"
+    t.string   "description"
+    t.datetime "time"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "circuits", ["points_id"], name: "index_circuits_on_points_id", using: :btree
+  add_index "circuits", ["users_id"], name: "index_circuits_on_users_id", using: :btree
 
   create_table "counties", force: :cascade do |t|
     t.integer  "area_id"
@@ -104,8 +119,10 @@ ActiveRecord::Schema.define(version: 20160408202333) do
     t.integer  "age"
     t.integer  "town_id"
     t.string   "authentication_token",   default: "", null: false
+    t.integer  "circuits_id"
   end
 
+  add_index "users", ["circuits_id"], name: "index_users_on_circuits_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
