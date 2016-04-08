@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320020429) do
+ActiveRecord::Schema.define(version: 20160408202333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 20160320020429) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
 
   create_table "parcours", force: :cascade do |t|
     t.float    "distance"
@@ -101,6 +111,7 @@ ActiveRecord::Schema.define(version: 20160320020429) do
 
   add_foreign_key "areas", "countries"
   add_foreign_key "counties", "areas"
+  add_foreign_key "groups", "users"
   add_foreign_key "towns", "counties"
   add_foreign_key "users", "towns"
 end
