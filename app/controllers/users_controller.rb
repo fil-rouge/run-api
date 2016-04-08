@@ -11,6 +11,7 @@ class UsersController < AuthenticateController
 
   def index
     # TODO : test
+    # TODO : skip filter
     @userCount = User.count
     render json: {:data => @userCount}
   end

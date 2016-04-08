@@ -16,3 +16,13 @@ _get a user_
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 14' -H 'token: Y9kXv52Qify8TK4xHw36' -X GET https://orunginal-api.herokuapp.com/users/14 -d "{\"user\":{\"email\":\"test@test.com\",\"password\":\"password\"}}"
 ```
 
+_get all circuits_
+```
+curl localhost:3000/circuits
+```
+
+_get all groups
+```
+curl localhost:3000/groups
+```
+

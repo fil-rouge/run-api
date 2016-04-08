@@ -1,23 +1,17 @@
 Rails.application.routes.draw do
   get '/users/sign_in' => 'sessions#create'
+  resources :users
+
+  resources :groups
+  resources :circuits
+
   devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
-  resources :country
 
-  resources :users do
-    resources :parcours do
-      resource :tags
-    end
-  end
-  # resources :areas
-  # resources :county
-  # resources :town
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
   root 'welcome#index'
+
+
+  #  ========= MEMO =======
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

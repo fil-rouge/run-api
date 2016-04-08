@@ -15,6 +15,8 @@
   Point.delete_all
   Parcour.delete_all
   User.delete_all
+  Group.delete_all
+  Circuit.delete_all
 
 
 
@@ -26,6 +28,17 @@
   p2 = Point.create(latitude: 2, longitude: 2)
   p3 = Point.create(latitude: 3, longitude: 3)
   p4 = Point.create(latitude: 4, longitude: 4)
+
+  # Circuits
+
+  c1 = Circuit.create(distance: 2000, note: 4,  description: "c'est dur lol")
+  c1 = Circuit.create(distance: 50, note: 4,  description: "easy")
+  c1 = Circuit.create(distance: 42000, note: 5,  description: "c'est un marathon")
+
+  # Groups
+  g1 = Group.create( name: "Les copains", description: "c'est un groupe entre copain pour aller courrir lol")
+  g2 = Group.create( name: "Remi", description: "c'est le groupe de remi sans ami")
+  g3 = Group.create( name: "empty group", description: "c'est un groupe vide")
 
   # parcours
   parcours = Parcour.create(distance: "400", note: 4, points: [p1,p2,p3,p4], tags: [tag])

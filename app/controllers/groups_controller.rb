@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   def index
-    # TODO: test and add route
+    # TODO: test
     @groups = Group.all
     render json: {:data => @groups}
   end

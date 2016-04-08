@@ -1,6 +1,5 @@
 class AuthenticateController < ApplicationController
   before_filter :authenticate_user_from_token! # =>  only user authenticated can have acces to that controller
-
   protected
 
   def authenticate_user_from_token!
