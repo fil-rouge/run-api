@@ -1,5 +1,7 @@
 class CountryController < ApplicationController
 
+# TODO: delete this ressources
+
   def index
     @countries = Country.all || []
   end

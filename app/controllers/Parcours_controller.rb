@@ -1,6 +1,8 @@
 class ParcoursController < ApplicationController
   # before_filter :authenticate_user_from_token!
 
+# TODO: delete this ressources
+
   def index
     if current_user != nil
       @parcours = current_user.parcours

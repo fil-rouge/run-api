@@ -2,23 +2,25 @@ class UsersController < AuthenticateController
 
 
   def new
-
+    # TODO: delete from route
   end
 
   def create
-
+    # TODO: inplement
   end
 
   def index
+    # TODO : test
     @userCount = User.count
     render json: {:data => @userCount}
   end
 
   def edit
-
+    # TODO: inplement
   end
 
   def show
+    # TODO : test
     user_id = params[:id].presence.to_i
 
     #  check if you ask informations about yourself
@@ -31,6 +33,7 @@ class UsersController < AuthenticateController
   end
 
   def destroy
+    # TODO : test
     user_id = params[:id].presence.to_i
 
     #  check if you ask informations about yourself
