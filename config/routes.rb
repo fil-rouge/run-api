@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   get '/users/sign_in' => 'sessions#create'
-  resources :users
+
+# user
+  get '/users/:id' => 'users#show'
+  get '/users' => 'users#index'
+  patch '/users' => 'users#edit'
+  put '/users' => 'users#edit'
+  delete '/users/:id' => 'sessions#destroy'
+
+
 
   resources :groups
   resources :circuits

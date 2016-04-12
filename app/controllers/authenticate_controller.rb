@@ -1,7 +1,7 @@
 class AuthenticateController < ApplicationController
-  before_filter :authenticate_user_from_token! # =>  only user authenticated can have acces to that controller
-  protected
+  # before_action :authenticate_user_from_token! # =>  only user authenticated can have acces to that controller
 
+  protected
   def authenticate_user_from_token!
     #  authentificate from the header : id and token from the current user
     user_id = request.headers["HTTP_USER_ID"].presence

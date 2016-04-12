@@ -1,12 +1,5 @@
 class UsersController < AuthenticateController
-
-  def new
-    # TODO: delete from route
-  end
-
-  def create
-    # TODO: inplement
-  end
+  before_action :authenticate_user_from_token!, :only => [:edit, :show, :destroy]
 
   def index
     # TODO : test
