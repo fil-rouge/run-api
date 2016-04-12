@@ -26,3 +26,15 @@ _get all groups
 curl localhost:3000/groups
 ```
 
+
+_push to heroku_
+
+```
+git push heroku master
+```
+
+*OR*
+
+```
+git push develop develop:master
+```
