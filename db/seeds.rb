@@ -1,5 +1,4 @@
   # clean db
-
   Point.delete_all
   User.delete_all
   Group.delete_all

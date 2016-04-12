@@ -16,7 +16,7 @@ class AuthenticateController < ApplicationController
         render json: {:data => {:error => 'Invalid authorization: your token is not valid '}}
       end
     else
-      render json: {:data => {:error => "Invalid authorization: you need to give the user id ant the authntification token in the header as HTTP_USER_ID and HTTP_TOKEN"}}
+      render json: {:data => {:error => "Invalid authorization: you need to give the user id and the authenthification token in the header as HTTP_USER_ID and HTTP_TOKEN"}}
     end
 
   end
