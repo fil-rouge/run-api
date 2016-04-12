@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  has_many :parcours
-  has_many :groups
-  has_many :circuits
+  # has_many :parcours  => old
+  has_and_belongs_to_many :groups
+  has_and_belongs_to_many :circuits
 
   # validates :name,
   #           :presence => true,

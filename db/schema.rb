@@ -11,21 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408212405) do
+ActiveRecord::Schema.define(version: 20160412095849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "areas", force: :cascade do |t|
-    t.integer  "country_id"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "circuits", force: :cascade do |t|
-    t.integer  "users_id"
-    t.integer  "points_id"
     t.integer  "distance"
     t.integer  "note"
     t.datetime "date"
@@ -35,69 +26,42 @@ ActiveRecord::Schema.define(version: 20160408212405) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "circuits", ["points_id"], name: "index_circuits_on_points_id", using: :btree
-  add_index "circuits", ["users_id"], name: "index_circuits_on_users_id", using: :btree
-
-  create_table "counties", force: :cascade do |t|
-    t.integer  "area_id"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "circuits_points", force: :cascade do |t|
+    t.integer "circuit_id"
+    t.integer "point_id"
   end
 
-  create_table "countries", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  add_index "circuits_points", ["circuit_id"], name: "index_circuits_points_on_circuit_id", using: :btree
+  add_index "circuits_points", ["point_id"], name: "index_circuits_points_on_point_id", using: :btree
+
+  create_table "circuits_users", force: :cascade do |t|
+    t.integer "circuit_id"
+    t.integer "user_id"
   end
+
+  add_index "circuits_users", ["circuit_id"], name: "index_circuits_users_on_circuit_id", using: :btree
+  add_index "circuits_users", ["user_id"], name: "index_circuits_users_on_user_id", using: :btree
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
-
-  create_table "parcours", force: :cascade do |t|
-    t.float    "distance"
-    t.datetime "dateDebut"
-    t.datetime "dateFin"
-    t.integer  "note"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "groups_users", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "user_id"
   end
+
+  add_index "groups_users", ["group_id"], name: "index_groups_users_on_group_id", using: :btree
+  add_index "groups_users", ["user_id"], name: "index_groups_users_on_user_id", using: :btree
 
   create_table "points", force: :cascade do |t|
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "parcour_id"
-  end
-
-  add_index "points", ["parcour_id"], name: "index_points_on_parcour_id", using: :btree
-
-  create_table "tags", force: :cascade do |t|
-    t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "parcour_id"
-  end
-
-  add_index "tags", ["parcour_id"], name: "index_tags_on_parcour_id", using: :btree
-
-  create_table "towns", force: :cascade do |t|
-    t.integer  "county_id"
-    t.string   "name"
-    t.integer  "radius"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -117,18 +81,10 @@ ActiveRecord::Schema.define(version: 20160408212405) do
     t.string   "surname"
     t.string   "phone_number"
     t.integer  "age"
-    t.integer  "town_id"
     t.string   "authentication_token",   default: "", null: false
-    t.integer  "circuits_id"
   end
 
-  add_index "users", ["circuits_id"], name: "index_users_on_circuits_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "areas", "countries"
-  add_foreign_key "counties", "areas"
-  add_foreign_key "groups", "users"
-  add_foreign_key "towns", "counties"
-  add_foreign_key "users", "towns"
 end
