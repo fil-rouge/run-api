@@ -3,7 +3,7 @@ class UsersController < AuthenticateController
 
   def index
     # TODO : test
-    # TODO : skip filter
+    # TODO : looking if there aren'test too much information about users
     @userCount = User.all
   end
 
