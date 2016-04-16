@@ -1,5 +1,5 @@
 class UsersController < AuthenticateController
-  before_action :authenticate_user_from_token!, :only => [:edit, :show, :destroy]
+  before_action :authenticate_user_from_token!, :only => [:update, :show, :destroy]
 
   def index
     # TODO : test
@@ -7,8 +7,22 @@ class UsersController < AuthenticateController
     @userCount = User.all
   end
 
-  def edit
-    # TODO: inplement
+  def update
+    # TODO: test
+    @user = User.find_by_id(params[:id])
+    if @user == nil
+      render json: {:error => "no user found"}
+    else
+      if current_user.id != @user.id
+        render json: {:error => "you can not edit an other user than yourself"}
+      else
+        if @user.update_attributes(user_params)
+          @user
+        else
+          render json: {:error => "Nothing has been changed on the user"}
+        end
+      end
+    end
   end
 
   def show
@@ -40,4 +54,10 @@ class UsersController < AuthenticateController
     end
   end
 
+
+private
+
+  def user_params
+      params.require(:user).permit(:name, :surname, :email, :password, :password_confirmation, :age, :phone_number)
+  end
 end

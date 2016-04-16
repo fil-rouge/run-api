@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-  get '/users/sign_in' => 'sessions#create'
 
 # user
   get '/users/:id' => 'users#show'
   get '/users' => 'users#index'
-  patch '/users' => 'users#edit'
-  put '/users' => 'users#edit'
+  patch '/users/:id' => 'users#update'
+  put '/users/:id' => 'users#update'
   delete '/users/:id' => 'sessions#destroy'
-
 
 
   resources :groups
