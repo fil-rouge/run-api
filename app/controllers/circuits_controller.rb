@@ -6,15 +6,18 @@ class CircuitsController < AuthenticateController
   end
 
   def create
-    #  TODO: impelement
+    #  TODO: implement
   end
 
+  def show
+    # TODO: implement
+
   def update
-    #  TODO: impelement
+    #  TODO: implement
   end
 
   def destroy
-    #  TODO: impelement
+    #  TODO: implement
   end
 
 end

@@ -8,9 +8,9 @@ class GroupsController < AuthenticateController
   end
 
   def create
+    #  TODO: TEST
     params = group_params
     admin_id = params[:admin_id].to_i || nil
-    byebug
     if admin_id != nil  && admin_id == current_user.id
       @group = Group.create(params)
       if @group.nil?
@@ -19,7 +19,6 @@ class GroupsController < AuthenticateController
         render json: {:error => "this group name is already taken !"}
       end
     else
-      byebug
       render json: {:error => "you can not create a group for someone else"}
     end
   end

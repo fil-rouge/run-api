@@ -3,7 +3,6 @@ class UsersController < AuthenticateController
 
   def index
     # TODO : test
-    # TODO : looking if there aren'test too much information about users
     @userCount = User.all
   end
 
@@ -41,7 +40,7 @@ class UsersController < AuthenticateController
     # TODO : test
     user_id = params[:id].presence.to_i
 
-    #  check if you ask informations about yourself
+    #  check if you want to delete yourself
     if current_user.id == user_id
       @user = User.find_by_id(user_id)
       if @user.delete
@@ -54,9 +53,7 @@ class UsersController < AuthenticateController
     end
   end
 
-
 private
-
   def user_params
       params.require(:user).permit(:name, :surname, :email, :password, :password_confirmation, :age, :phone_number)
   end
