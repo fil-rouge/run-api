@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :groups
   has_and_belongs_to_many :circuits
+  has_many :admin_groups, :class_name => "Group", :foreign_key => :admin_id
 
   # validates :name,
   #           :presence => true,
