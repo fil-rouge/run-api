@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/users' => 'users#index'
   patch '/users/:id' => 'users#update'
   put '/users/:id' => 'users#update'
-  delete '/users/:id' => 'sessions#destroy'
+  delete '/users/:id' => 'users#destroy'
 
 
   resources :groups

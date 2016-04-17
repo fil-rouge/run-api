@@ -44,7 +44,7 @@ class UsersController < AuthenticateController
     if current_user.id == user_id
       @user = User.find_by_id(user_id)
       if @user.delete
-        render json: {:data => @user}
+        @user
       else
         render json: {:error => 'an error occured, the user is not deleted'}
     end

@@ -30,6 +30,12 @@ _get all users_
 curl localhost:3000/users | python -m json.tool
 ```
 
+_Destroy a user_
+```
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 20' -H 'token: cxjC-2JhQgzzuTzEVDrV' -X DELETE localhost:3000/users/20  | python -m json.tool
+```
+
+
 ## CIRCUITS
 
 _get all circuits_
