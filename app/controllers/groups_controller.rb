@@ -24,6 +24,10 @@ class GroupsController < AuthenticateController
     end
   end
 
+  def update
+    #  TODO : implement
+  end
+
   def show
     # TODO: test
     group_id = params[:id].presence.to_i
@@ -31,9 +35,13 @@ class GroupsController < AuthenticateController
     render json:{:error => "no group with that id found."} if @group == nil
   end
 
+  def destroy
+    # TODO: implement
+  end
+
   private
 
   def group_params
-      params.require(:group).permit(:name, :description, :admin, :admin_id, :users, :users_id)
+      params.require(:group).permit(:name, :description, :admin_id, :users, :users_id)
   end
 end
