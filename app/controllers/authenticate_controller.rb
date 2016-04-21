@@ -13,10 +13,10 @@ class AuthenticateController < ApplicationController
       if user && Devise.secure_compare(user.authentication_token, user_token)
         sign_in user, store: false
       else
-        render json: ErrorsHelper.json_error :invalid_token
+        render json: ErrorsHelper.json_error(:invalid_token)
       end
     else
-      render json: ErrorsHelper.json_error :invalid_header
+      render json: ErrorsHelper.json_error(:invalid_header)
     end
 
   end

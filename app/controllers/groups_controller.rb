@@ -15,10 +15,10 @@ class GroupsController < AuthenticateController
       if !@group.nil?
         @group
       else
-        render json: ErrorsHelper.json_error :name_already_used
+        render json: ErrorsHelper.json_error(:name_already_used)
       end
     else
-      render json: ErrorsHelper,json_error :bad_user_id
+      render json: ErrorsHelper.json_error(:bad_user_id)
     end
   end
 
@@ -26,7 +26,7 @@ class GroupsController < AuthenticateController
     #  TODO : test & refacto
     params = group_params
     @group = Group.find_by_id(params[:id]) || nil
-    if  @group !=nil
+    if @group !=nil
       # The admin is updating his group
       if @group.admin.id == current_user.id
         if @group.update_attributes(params)
@@ -54,12 +54,12 @@ class GroupsController < AuthenticateController
               render json: ErrorsHelper.json_error
             end
           else
-            render json: ErrorsHelper.json_error :bad_user_id
+            render json: ErrorsHelper.json_error(:bad_user_id)
           end
         end
       end
     else
-      render json: ErrorsHelper.json_error :bad_id
+      render json: ErrorsHelper.json_error(:bad_id)
     end
   end
 
@@ -67,7 +67,7 @@ class GroupsController < AuthenticateController
     # TODO: test
     group_id = params[:id].presence.to_i
     @group = Group.find_by_id group_id
-    render json: ErrorsHelper.json_error :bad_id if @group == nil
+    render json: ErrorsHelper.json_error(:bad_id) if @group == nil
   end
 
   def destroy
@@ -81,7 +81,7 @@ class GroupsController < AuthenticateController
         render json: ErrorsHelper.json_error
       end
     else
-      render json: ErrorsHelper.json_error :not_admin
+      render json: ErrorsHelper.json_error(:not_admin)
     end
   end
 

@@ -10,10 +10,10 @@ class UsersController < AuthenticateController
     # TODO: test
     @user = User.find_by_id(params[:id])
     if @user == nil
-      render json: ErrorsHelper.json_error :bad_id
+      render json: ErrorsHelper.json_error(:bad_id)
     else
       if current_user.id != @user.id
-        render json: ErrorsHelper.json_error :bad_user_id
+        render json: ErrorsHelper.json_error(:bad_user_id)
       else
         if @user.update_attributes(user_params)
           @user
@@ -32,7 +32,7 @@ class UsersController < AuthenticateController
     if current_user.id == user_id
       @user = User.find_by_id(user_id)
     else
-      render json: ErrorsHelper.json_errorv :bad_user_id
+      render json: ErrorsHelper.json_errorv(:bad_user_id)
     end
   end
 
@@ -47,9 +47,9 @@ class UsersController < AuthenticateController
         @user
       else
         render json: ErrorsHelper.json_error
-    end
+      end
     else
-      render json: ErrorsHelper.json_error :bad_user_id
+      render json: ErrorsHelper.json_error(:bad_user_id)
     end
   end
 

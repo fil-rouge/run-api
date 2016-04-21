@@ -14,10 +14,10 @@ class CircuitsController < AuthenticateController
       if !@circuit.nil?
         @circuit
       else
-        render json: ErrorsHelper.json_error :name_already_used
+        render json: ErrorsHelper.json_error(:name_already_used)
       end
     else
-      render json: ErrorsHelper.json_error :bad_user_id
+      render json: ErrorsHelper.json_error(:bad_user_id)
     end
   end
 
@@ -27,7 +27,7 @@ class CircuitsController < AuthenticateController
     if @circuit != nil
       @circuit
     else
-      render json: ErrorsHelper.json_error :bad_id
+      render json: ErrorsHelper.json_error(:bad_id)
     end
   end
 
@@ -40,10 +40,10 @@ class CircuitsController < AuthenticateController
       if !@circuit.nil?
         @circuit
       else
-        render json: ErrorsHelper.json_error :name_already_used
+        render json: ErrorsHelper.json_error(:name_already_used)
       end
     else
-      render json: ErrorsHelper.json_error :bad_user_id
+      render json: ErrorsHelper.json_error(:bad_user_id)
     end
   end
 
@@ -69,7 +69,7 @@ class CircuitsController < AuthenticateController
         end
       end
     else
-      render json: ErrorsHelper.json_error :bad_user_id
+      render json: ErrorsHelper.json_error(:bad_user_id)
     end
   end
 
