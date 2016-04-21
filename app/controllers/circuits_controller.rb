@@ -11,6 +11,7 @@ class CircuitsController < AuthenticateController
 
   def show
     # TODO: implement
+  end
 
   def update
     #  TODO: implement
