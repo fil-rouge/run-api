@@ -54,7 +54,11 @@ class CircuitsController < AuthenticateController
     if users_id.include? current_user
       # if there is only one user left, we delte the circuit
       if users_id.size <= 1
-
+        if @circuit.destroy
+          @circuit
+        else
+          render json: {:error => "unknown error when circuit#destroy"}
+        end
       # if there is at least 2 users, we delete only the current_user from the circuit
       else
         users_id.reject! {|user| user.id == current_user.id}
