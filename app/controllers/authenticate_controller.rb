@@ -13,10 +13,10 @@ class AuthenticateController < ApplicationController
       if user && Devise.secure_compare(user.authentication_token, user_token)
         sign_in user, store: false
       else
-        render json: {:error => 'Invalid authorization: your token is not valid '}
+        render json: ErrorsHelper.json_error :invalid_token
       end
     else
-      render json: {:error => "Invalid authorization: you need to give the user id and the authenthification token in the header as HTTP_USER_ID and HTTP_TOKEN"}
+      render json: ErrorsHelper.json_error :invalid_header
     end
 
   end

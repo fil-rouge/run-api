@@ -14,10 +14,10 @@ class CircuitsController < AuthenticateController
       if !@circuit.nil?
         @circuit
       else
-        render json: {:error => "this circuit name is already taken !"}
+        render json: ErrorsHelper.json_error :name_already_used
       end
     else
-      render json: {:error => "you can not create a circuit for someone else"}
+      render json: ErrorsHelper.json_error :bad_user_id
     end
   end
 
@@ -27,7 +27,7 @@ class CircuitsController < AuthenticateController
     if @circuit != nil
       @circuit
     else
-      render json: {:error => "circuit not found with that id"}
+      render json: ErrorsHelper.json_error :bad_id
     end
   end
 
@@ -40,10 +40,10 @@ class CircuitsController < AuthenticateController
       if !@circuit.nil?
         @circuit
       else
-        render json: {:error => "this circuit name is already taken !"}
+        render json: ErrorsHelper.json_error :name_already_used
       end
     else
-      render json: {:error => "you can not create a circuit for someone else"}
+      render json: ErrorsHelper.json_error :bad_user_id
     end
   end
 
@@ -57,7 +57,7 @@ class CircuitsController < AuthenticateController
         if @circuit.destroy
           @circuit
         else
-          render json: {:error => "unknown error when circuit#destroy"}
+          render json: ErrorsHelper.json_error
         end
       # if there is at least 2 users, we delete only the current_user from the circuit
       else
@@ -65,11 +65,11 @@ class CircuitsController < AuthenticateController
         if @circuit = Circuit.update_attributes({:users => users_id})
           @circuit
         else
-          render json: {:error => "unknown error when circuit#destroy"}
+          render json: ErrorsHelper.json_error
         end
       end
     else
-          render json: {:error => "you can not destroy a circuit that is not your"}
+      render json: ErrorsHelper.json_error :bad_user_id
     end
   end
 

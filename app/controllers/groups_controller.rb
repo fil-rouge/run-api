@@ -15,10 +15,10 @@ class GroupsController < AuthenticateController
       if !@group.nil?
         @group
       else
-        render json: {:error => "this group name is already taken !"}
+        render json: ErrorsHelper.json_error :name_already_used
       end
     else
-      render json: {:error => "you can not create a group for someone else"}
+      render json: ErrorsHelper,json_error :bad_user_id
     end
   end
 
@@ -32,7 +32,7 @@ class GroupsController < AuthenticateController
         if @group.update_attributes(params)
           @group
         else
-          render json: {:error => "unkown error"}
+          render json: ErrorsHelper.json_error
         end
       #  someone else wants to update the group
       else
@@ -43,7 +43,7 @@ class GroupsController < AuthenticateController
             if @group.update_attibutes({:users => users})
               @group
             else
-              render json: {:error => "unkown error"}
+              render json: ErrorsHelper.json_error
             end
 
           elsif (@groups.users - users).first.id == current_user.id
@@ -51,15 +51,15 @@ class GroupsController < AuthenticateController
             if @group.update_attibutes({:users => users})
               @group
             else
-              render json: {:error => "can update attributes"}
+              render json: ErrorsHelper.json_error
             end
           else
-            render json: {:error => "you can not update other user from the group"}
+            render json: ErrorsHelper.json_error :bad_user_id
           end
         end
       end
     else
-      render json: {:error => "this group does not exist"}
+      render json: ErrorsHelper.json_error :bad_id
     end
   end
 
@@ -67,7 +67,7 @@ class GroupsController < AuthenticateController
     # TODO: test
     group_id = params[:id].presence.to_i
     @group = Group.find_by_id group_id
-    render json:{:error => "no group with that id found."} if @group == nil
+    render json: ErrorsHelper.json_error :bad_id if @group == nil
   end
 
   def destroy
@@ -78,10 +78,10 @@ class GroupsController < AuthenticateController
       if @group.destroy
         @group
       else
-        render json: {:error => " we can not destroy this group"}
+        render json: ErrorsHelper.json_error
       end
     else
-      render json: {:error => "you can destroy a group if you re not the admin"}
+      render json: ErrorsHelper.json_error :not_admin
     end
   end
 
