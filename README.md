@@ -68,3 +68,60 @@ git push heroku master
 ```
 git push develop develop:master
 ```
+
+
+## TEST
+
+
+```
+bundle exec rspec
+```
+
+
+#####Scenarii:
+
+- [ ] un utilisateur cree un compte
+- [ ] un utilisateur cree une session
+- [ ] un utilisateur detruit une session
+- [ ] un utilisateur non enregistré essaie de creer/supprimer/modifier une session
+- [ ] un utilisateur supprimer son compte
+- [ ] un utilisateur oublie son mdp
+- [ ] un utilisateur bloque son compte
+- [ ] un utilisateur change son mdp
+- [ ] un utilisateur change son email
+
+
+- [ ] un utilisateur cree un group/circuits
+- [ ] un utilisateur joint un group
+- [ ] un utilisateur quite un groupe
+- [ ] un utilisateur essaie de modifier un groupe
+- [ ] un admin modifie un groupe
+- [ ] un admin quitte un groupe
+- [ ] un admin supprimer un groupe
+- [ ] un admin donne son droit d'admin a qqn
+
+- [ ] un utilisateur ajoute un circuits
+- [ ] un utilisateur modfifier un circuits ?? # que fait si il y a d'autre user dessus
+- [ ] un utilisateur supprmier le circuit ? (cb de user reste il)
+
+
+###### test secu
+
+- [ ] un serveur sans les api key veut consumer l'api
+- [ ] on recoit un flood d'un utilisateur
+- [ ] on recoit une alternance forte de 2 ip differentes pour un users ? => invalider la session
+- [ ] injection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
