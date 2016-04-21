@@ -2,9 +2,10 @@ class User < ActiveRecord::Base
   before_save :set_auth_token
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  #  and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :confirmable, :lockable, :timeoutable
 
   has_and_belongs_to_many :groups
   has_and_belongs_to_many :circuits
