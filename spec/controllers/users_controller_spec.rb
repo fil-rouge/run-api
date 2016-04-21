@@ -1,20 +1,20 @@
 require 'rails_helper'
 
-RSpec.describe GroupsController, type: :controller do
+RSpec.describe UsersController, type: :controller do
 
-#======================== INDEX ===========================
+  #======================== INDEX ===========================
   describe "index" do
     before do
       # TODO: use factorygirl her
     end
 
-    it "get a well form  response" do
-      @group = get :index
+    it "get a well form response" do
+      @user = get :index
       expect false
     end
 
-    it "get all the groups" do
-      @group = get :index
+    it "get all the users" do
+      @user = get :index
       expect false
     end
   end
@@ -25,13 +25,13 @@ RSpec.describe GroupsController, type: :controller do
       # TODO: use factorygirl her
     end
 
-    it "show a group with incorrect id" do
-      @group = get :show
+    it "show a user with incorrect id" do
+      @user = get :show
       expect false
     end
 
-    it "show a group with correct id" do
-      @group = get :show
+    it "show a user with correct id" do
+      @user = get :show
       expect false
     end
   end
@@ -42,13 +42,8 @@ RSpec.describe GroupsController, type: :controller do
       # TODO: use factorygirl her
     end
 
-    it "Uupdate a group as an admin" do
-      @group = get :update
-      expect false
-    end
-
-    it "Update a group as a user" do
-      @group = get :update
+    it "Update a user as a user" do
+      @user = get :update
       expect false
     end
   end
@@ -59,15 +54,9 @@ RSpec.describe GroupsController, type: :controller do
       # TODO: use factorygirl her
     end
 
-    it "Destroy a group as an admin" do
-      @group = get :destroy
-      expect false
-    end
-
-    it "destroy a group as an user" do
-      @group = get :destroy
+    it "destroy a user as an user" do
+      @user = get :destroy
       expect false
     end
   end
-
 end

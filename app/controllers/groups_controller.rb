@@ -36,33 +36,31 @@ class GroupsController < AuthenticateController
         end
       #  someone else wants to update the group
       else
-      users = params[:users] || params[:users_id] || nil
-      if users != nil
-        if (users - @groups.users).first.id == current_user.id
-          # on ajout le user au groupe
-          if @group.update_attibutes({:users => users)
-            @group
-          else
-          render json: {:error => "unkown error"}
-          end
+        users = params[:users] || params[:users_id] || nil
+        if users != nil
+          if (users - @groups.users).first.id == current_user.id
+            # on ajout le user au groupe
+            if @group.update_attibutes({:users => users})
+              @group
+            else
+              render json: {:error => "unkown error"}
+            end
 
-        elsif (@groups.users - users).first.id == current_user.id
-          # on supprimee le user du groupe
-          if @group.update_attibutes({:users => users)
-            @group
+          elsif (@groups.users - users).first.id == current_user.id
+            # on supprimee le user du groupe
+            if @group.update_attibutes({:users => users})
+              @group
+            else
+              render json: {:error => "can update attributes"}
+            end
           else
-            render json: {:error => "can update attributes"}
+            render json: {:error => "you can not update other user from the group"}
           end
-        else
-          render json: {:error => "you can not update other user from the group"}
         end
-      else
-        render json: {:error => "unkown error"}
       end
     else
       render json: {:error => "this group does not exist"}
     end
-
   end
 
   def show

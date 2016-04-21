@@ -35,7 +35,7 @@ class CircuitsController < AuthenticateController
     #  TODO: test
     users_id = group_params[:users].to_i || []
     @circuit = Circuit.find_by_id group_params[:id] || nil
-    if @circuit != nil  && users_id.include? current_user.id
+    if (@circuit != nil)  && (users_id.include? current_user.id)
       @circuit = Circuit.update_attributes(group_params) || nil
       if !@circuit.nil?
         @circuit
@@ -66,6 +66,7 @@ class CircuitsController < AuthenticateController
           @circuit
         else
           render json: {:error => "unknown error when circuit#destroy"}
+        end
       end
     else
           render json: {:error => "you can not destroy a circuit that is not your"}

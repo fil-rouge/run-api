@@ -8,7 +8,7 @@ module ErrorsHelper
 
 # TODO: check how to return the status code in the json or in the request
   def json_error(symbol = :unknown_error, code = 401  )
-    {:error => ERROR[symbol] ) #, :status => code}
+    {:error => ERROR[symbol] } #, :status => code}
   end
 
 
