@@ -1,5 +1,6 @@
 class SessionsController < Devise::SessionsController
   def create
+    # TODO: generate a new token ?
     respond_to do |format|
       format.json do
         self.resource = warden.authenticate!(auth_options)

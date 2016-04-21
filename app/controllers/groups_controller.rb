@@ -1,5 +1,4 @@
 class GroupsController < AuthenticateController
-  #  TODO: Add create update
   before_action :authenticate_user_from_token!, :only => [ :create, :update, :destroy]
 
   def index
