@@ -12,8 +12,8 @@ class CircuitsController < AuthenticateController
 
   def create
      #  TODO: TEST
-    users_id = group_params[:users].to_i || []
-    if users_id.empty?  && users_id.first == current_user.id
+    users_id = group_params[:users].to_i || params[:user_id] || []
+    if !users_id.blank? && users_id.first == current_user.id
       @circuit = Circuit.create(group_params)
       if !@circuit.nil?
         @circuit
@@ -80,6 +80,6 @@ class CircuitsController < AuthenticateController
 private
 
   def group_params
-      params.require(:group).permit(:id, :distance, :note, :date, :description, :time, :users, :user_id)
+      params.require(:group).permit(:id, :distance, :note, :date, :description, :time, :users)
   end
 end
