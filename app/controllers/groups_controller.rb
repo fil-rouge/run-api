@@ -3,7 +3,14 @@ class GroupsController < AuthenticateController
 
   def index
     # TODO: test
-    @groups = Group.all
+    if params[:user_id] = nil
+      @groups = Group.all
+    else
+      if @user = User.find_by_id(params[:user_id])
+        @groups = @user.groups
+      else
+        render json: ErrorsHelper.json_error(:bad_user_id)
+    end
   end
 
   def create

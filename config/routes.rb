@@ -2,20 +2,30 @@ Rails.application.routes.draw do
 
 # user
   get '/users/:id' => 'users#show'
+  match 'users/:id', to: 'users#show', via: [:options]
+  match 'users', to: 'users#index', via: [:options]
   get '/users' => 'users#index'
   patch '/users/:id' => 'users#update'
   put '/users/:id' => 'users#update'
   delete '/users/:id' => 'users#destroy'
 
+# groups
 
+  get '/users/:user_id/groups/:id' => 'groups#show'
+  get '/users/:user_id/groups' => 'groups#index'
+  patch '/users/:user_id/groups/:id' => 'groups#update'
+  put '/users/:user_id/groups/:id' => 'groups#update'
+  delete '/users/:user_id/groups/:id' => 'groups#destroy'
 
+# circuits
 
+  get '/users/:user_id/circuits/:id' => 'circuits#show'
+  get '/users/:user_id/circuits' => 'circuits#index'
+  patch '/users/:user_id/circuits/:id' => 'circuits#update'
+  put '/users/:user_id/circuits/:id' => 'circuits#update'
+  delete '/users/:user_id/circuits/:id' => 'circuits#destroy'
 
-
-
-
-  resources :groups
-  resources :circuits
+  resources :groups, :circuits
 
   devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
