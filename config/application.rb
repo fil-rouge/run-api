@@ -34,11 +34,6 @@ module RunApi
     #     'Access-Control-Request-Method' => %w{GET POST PUT OPTIONS UPDATE DELETE}.join(",")
     # }
 
-    use Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', headers: :any, methods: :any
-      end
-    end
+
   end
 end
