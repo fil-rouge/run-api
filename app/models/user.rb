@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   #  and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable
+         :recoverable, :rememberable, :trackable, :validatable#,
+         # :confirmable, :lockable, :timeoutable
+         # TODO uncomment and add a mailer
 
   has_and_belongs_to_many :groups
   has_and_belongs_to_many :circuits
