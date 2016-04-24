@@ -25,6 +25,11 @@ module RunApi
     config.api_only = false
     config.middleware.use ActionDispatch::Flash
 
+
+    config.assets.enabled = false
+
+
+
     # in config/application.rb
     config.action_dispatch.default_headers = {
         #  we shoudl change this with our MVVM server name
