@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'rack-cors'
 
+
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -42,6 +43,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
   gem "rails-erd"
+  gem 'foreman'
 end
 
 group :development do
