@@ -1,8 +1,11 @@
 json.data do
-  json.groups @groups do |g|
-    json.name g.name
-    json.description g.description
-    json.created_at g.created_at
+  json.array! @groups do |g|
     json.id g.id
+    json.type "group"
+    json.attributes do
+      json.name g.name
+      json.description g.description
+      json.created_at g.created_at
+    end
   end
 end

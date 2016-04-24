@@ -1,7 +1,7 @@
 json.data do
   json.array! @user do |u|
     json.id u.id
-    json.type "users"
+    json.type "user"
     json.attributes do
       json.name u.name
       json.surname u.surname
