@@ -26,12 +26,19 @@ module RunApi
     config.middleware.use ActionDispatch::Flash
 
     # in config/application.rb
-    config.action_dispatch.default_headers = {
-        #  we shoudl change this with our MVVM server name
-        #  TODO : CHANGE * HERE
-        # 'Access-Control-Allow-Origin' => 'http://my-web-service-consumer-site.com',
-        'Access-Control-Allow-Origin' => '*',
-        'Access-Control-Request-Method' => %w{GET POST PUT OPTIONS UPDATE DELETE}.join(",")
-    }
+    # config.action_dispatch.default_headers = {
+    #     #  we shoudl change this with our MVVM server name
+    #     #  TODO : CHANGE * HERE
+    #     # 'Access-Control-Allow-Origin' => 'http://my-web-service-consumer-site.com',
+    #     'Access-Control-Allow-Origin' => '*',
+    #     'Access-Control-Request-Method' => %w{GET POST PUT OPTIONS UPDATE DELETE}.join(",")
+    # }
+
+    use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: :any
+      end
+    end
   end
 end

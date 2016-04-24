@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
 # user
   get '/users/:id' => 'users#show'
-  match 'users/:id', to: 'users#show', via: [:options]
-  match 'users', to: 'users#index', via: [:options]
   get '/users' => 'users#index'
   patch '/users/:id' => 'users#update'
   put '/users/:id' => 'users#update'
