@@ -27,7 +27,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'us
 
 _get all users_
 ```
-curl localhost:3000/users | python -m json.tool
+curl https://orunginal-api.herokuapp.com/users | python -m json.tool
 ```
 
 _Destroy a user_
