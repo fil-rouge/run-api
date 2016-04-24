@@ -17,7 +17,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -X POS
 
 _get a user_ (pretty print in terminal)
 ```
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 2' -H 'token: 447hXkTzyj6j19JDcun8' -X GET https://orunginal-api.herokuapp.com/users/2 -d "{\"user\":{\"email\":\"test@test.com\",\"password\":\"password\"}}" | python -m json.tool
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 2' -H 'token: 447hXkTzyj6j19JDcun8' -X GET https://orunginal-api.herokuapp.com/users/2  | python -m json.tool
 ```
 
 _update a user_

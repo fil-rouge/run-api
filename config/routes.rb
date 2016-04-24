@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   delete '/users/:id' => 'users#destroy'
 
 
+
+
+
+
+
+
   resources :groups
   resources :circuits
 

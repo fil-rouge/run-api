@@ -3,6 +3,7 @@ json.data do
     json.id @user.id
     json.name @user.name
     json.surname @user.surname
+    json.is_admin @user.is_admin
     json.phone_number @user.phone_number
     json.age @user.age
     json.email @user.email
