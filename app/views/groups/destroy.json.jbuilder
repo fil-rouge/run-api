@@ -1,6 +1,6 @@
 json.data do
     json.id @group.id
-    json.type "group"
+    json.type "groups"
     json.attributes do
       json.name @group.name
       json.description @group.description

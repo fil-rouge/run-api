@@ -3,7 +3,12 @@ class CircuitsController < AuthenticateController
 
   def index
     # TODO:test and add route
-    @circuits = Circuit.all
+    byebug
+    if params[:user_id] !=nil && @user = User.find_by_id(:user_id)
+      @circuits = @user.circuits
+    else
+      @circuits = Circuit.all
+    end
   end
 
   def create
@@ -76,6 +81,6 @@ class CircuitsController < AuthenticateController
 private
 
   def group_params
-      params.require(:group).permit(:id, :distance, :note, :date, :description, :time, :users)
+      params.require(:group).permit(:id, :distance, :note, :date, :description, :time, :users, :user_id)
   end
 end

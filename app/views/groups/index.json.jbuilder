@@ -1,7 +1,7 @@
 json.data do
   json.array! @groups do |g|
     json.id g.id
-    json.type "group"
+    json.type "groups"
     json.attributes do
       json.name g.name
       json.description g.description
