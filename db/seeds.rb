@@ -17,6 +17,7 @@
 
   # Users
   user = User.create(email: 'test@test.com', password: 'password',name: 'default_name',surname: 'default_surname', circuits: [c1,c2,c3])
+  user = User.create(email: 'test1@test.com', password: 'password',name: 'default_name',surname: 'default_surname', circuits: [c1,c2,c3])
 
   # # Groups
   g1 = Group.create( name: "Les copains", description: "c'est un groupe entre copain pour aller courrir lol", admin: user)

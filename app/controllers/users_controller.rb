@@ -3,7 +3,7 @@ class UsersController < AuthenticateController
 
   def index
     # TODO : test
-    @userCount = User.all
+    @user = User.all
   end
 
   def update

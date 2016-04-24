@@ -1,10 +1,14 @@
 json.data do
-  json.circuit do
-    json.circuit_id @circuit.id
-    json.distance @circuit.distance
-    json.description @circuit.description
-    json.note @circuit.note
-    json.time @circuit.time
-    json.date @circuit.date
+  json.array! @circuits do |c|
+    json.id c.id
+    json.type "circuits"
+    json.attributes do
+      json.circuit_id c.id
+      json.distance c.distance
+      json.description c.description
+      json.note c.note
+      json.time c.time
+      json.date c.date
+    end
   end
 end

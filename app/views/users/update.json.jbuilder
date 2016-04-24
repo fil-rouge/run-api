@@ -1,20 +1,17 @@
 json.data do
-  json.user do
-    json.id @user.id
-    json.name @user.name
-    json.surname @user.surname
-    json.phone_number @user.phone_number
-    json.age @user.age
-    json.email @user.email
-    json.last_sign_in @user.last_sign_in_at
-
-    json.circuits @user.circuits do |c|
-      json.circuit c
+  json.array! @user do |u|
+    json.id u.id
+    json.type "users"
+    json.attributes do
+      json.name u.name
+      json.surname u.surname
+      json.email u.email
+      json.age u.age
+      json.phone_number u.phone_number
+      json.last_sign_in_at u.last_sign_in_at
+      json.created_at u.created_at
+      json.sign_in_count u.sign_in_count
+      json.last_sign_in_ip u.last_sign_in_ip
     end
-
-    json.groups @user.groups do |g|
-      json.group g
-    end
-
   end
 end

@@ -1,17 +1,17 @@
-json.parcours @user do |u|
-  json.id u.id
-  json.name u.name
-  json.surname u.surname
-  json.phone_number u.phone_number
-  json.age u.age
-  json.email u.email
-  json.last_sign_in u.last_sign_in_at
-
-  json.circuits u.circuits do |c|
-    json.circuit c
-  end
-
-  json.groups u.groups do |g|
-    json.group g
+json.data do
+  json.array! @user do |u|
+    json.id u.id
+    json.type "users"
+    json.attributes do
+      json.name u.name
+      json.surname u.surname
+      json.email u.email
+      json.age u.age
+      json.phone_number u.phone_number
+      json.last_sign_in_at u.last_sign_in_at
+      json.created_at u.created_at
+      json.sign_in_count u.sign_in_count
+      json.last_sign_in_ip u.last_sign_in_ip
+    end
   end
 end
