@@ -3,7 +3,6 @@ class CircuitsController < AuthenticateController
 
   def index
     # TODO:test and add route
-    byebug
     if params[:user_id] !=nil && @user = User.find_by_id(:user_id)
       @circuits = @user.circuits
     else
