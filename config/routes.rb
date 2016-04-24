@@ -9,19 +9,19 @@ Rails.application.routes.draw do
 
 # groups
 
-  get '/users/:user_id/groups/:id' => 'groups#show'
-  get '/users/:user_id/groups' => 'groups#index'
-  patch '/users/:user_id/groups/:id' => 'groups#update'
-  put '/users/:user_id/groups/:id' => 'groups#update'
-  delete '/users/:user_id/groups/:id' => 'groups#destroy'
+  # get '/users/:user_id/groups/:id' => 'groups#show'
+  # get '/users/:user_id/groups' => 'groups#index'
+  # patch '/users/:user_id/groups/:id' => 'groups#update'
+  # put '/users/:user_id/groups/:id' => 'groups#update'
+  # delete '/users/:user_id/groups/:id' => 'groups#destroy'
 
 # circuits
 
-  get '/users/:user_id/circuits/:id' => 'circuits#show'
-  get '/users/:user_id/circuits' => 'circuits#index'
-  patch '/users/:user_id/circuits/:id' => 'circuits#update'
-  put '/users/:user_id/circuits/:id' => 'circuits#update'
-  delete '/users/:user_id/circuits/:id' => 'circuits#destroy'
+  # get '/users/:user_id/circuits/:id' => 'circuits#show'
+  # get '/users/:user_id/circuits' => 'circuits#index'
+  # patch '/users/:user_id/circuits/:id' => 'circuits#update'
+  # put '/users/:user_id/circuits/:id' => 'circuits#update'
+  # delete '/users/:user_id/circuits/:id' => 'circuits#destroy'
 
   resources :groups, :circuits
 
