@@ -18,7 +18,7 @@ class CircuitsController < AuthenticateController
 
     points = []
       group_params[:points].map  do |i|
-        points << Point.create(:latitude => i[:latitude], :longitude => i[:longitude])
+        points << Point.create(:latitude => i[:lat], :longitude => i[:lng])
       end
       # TODO : CLEAN THAT FUCKING CODE
       create_params = group_params
