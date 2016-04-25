@@ -27,7 +27,7 @@ class CircuitsController < AuthenticateController
 
   def show
     # TODO: test
-    @circuit = Circuit.find_by_id group_params[:id] || nil
+    @circuit = Circuit.find_by_id params[:id] || nil
     if @circuit != nil
       @circuit
     else

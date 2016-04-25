@@ -9,4 +9,16 @@ json.data do
     json.time @circuit.time
     json.date @circuit.date
   end
+  json.relationships do
+    json.points do
+      json.data do
+        json.array! @circuit.points do |p|
+          json.type "points"
+          json.id p.id
+          json.latitude p.latitude
+          json.longitude p.longitude
+        end
+      end
+    end
+  end
 end
