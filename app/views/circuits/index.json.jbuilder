@@ -11,16 +11,16 @@ json.data do
       json.date c.date
     end
     json.relationships do
-    json.points do
-      json.data do
-        json.array! c.points do |p|
-          json.type "points"
-          json.id p.id
-          json.latitude p.latitude
-          json.longitude p.longitude
+      json.points do
+        json.data do
+          json.array! c.points do |p|
+            json.type "points"
+            json.id p.id
+            json.latitude p.latitude
+            json.longitude p.longitude
+          end
         end
       end
     end
-  end
   end
 end
