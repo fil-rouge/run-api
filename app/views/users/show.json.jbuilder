@@ -33,8 +33,10 @@ json.data do
                   json.array! c.points do |p|
                     json.type "points"
                     json.id p.id
-                    json.latitude p.latitude
-                    json.longitude p.longitude
+                    json.attributes do
+                      json.latitude p.latitude
+                      json.longitude p.longitude
+                    end
                   end
                 end
               end
