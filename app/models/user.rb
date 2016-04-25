@@ -29,15 +29,13 @@ class User < ActiveRecord::Base
             :numericality => { :greater_than => 0 },
             :allow_blank => true
 
-def get_stats
-  return {
-    :circuits_number => self.circuits.size,
-    :total_distance => self.circuits.inject(0){|sum,x| sum + x.distance },
-    :total_time => self.circuits.inject(0){|sum,x| x.time == nil ? sum : sum + x.time}
-  }
-end
-
-
+  def get_stats
+    return {
+      :circuits_number => self.circuits.size,
+      :total_distance => self.circuits.inject(0){|sum,x| sum + x.distance },
+      :total_time => self.circuits.inject(0){|sum,x| x.time == nil ? sum : sum + x.time}
+    }
+  end
 
   private
   def set_auth_token

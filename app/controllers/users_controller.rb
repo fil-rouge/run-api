@@ -27,7 +27,6 @@ class UsersController < AuthenticateController
   def show
     # TODO : test
     user_id = params[:id].presence.to_i
-
     #  check if you ask informations about the current_user or someone else
     if current_user.id == user_id
       @user = User.find_by_id(user_id)

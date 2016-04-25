@@ -11,5 +11,8 @@ json.data do
     json.created_at @user.created_at
     json.sign_in_count @user.sign_in_count
     json.last_sign_in_ip @user.last_sign_in_ip
+    json.total_distance @user.get_stats[:total_distance]
+    json.total_time @user.get_stats[:total_time]
+    json.circuits_number @user.get_stats[:circuits_number]
   end
 end
