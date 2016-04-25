@@ -15,4 +15,31 @@ json.data do
     json.totaltime @user.get_stats[:total_time]
     json.circuitsnumber @user.get_stats[:circuits_number]
   end
+  json.relationships do
+    json.circuits do
+      json.data do
+        json.array! @user.circuits do |c|
+          json.circuitid c.id
+          json.type "circuits"
+          json.distance c.distance
+          json.description c.description
+          json.note c.note
+          json.time c.time
+          json.date c.date
+          json.relationships do
+            json.points do
+              json.data do
+                json.array! c.points do |p|
+                  json.type "points"
+                  json.id p.id
+                  json.latitude p.latitude
+                  json.longitude p.longitude
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+  end
 end
