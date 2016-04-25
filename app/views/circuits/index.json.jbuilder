@@ -3,7 +3,7 @@ json.data do
     json.id c.id
     json.type "circuits"
     json.attributes do
-      json.circuit_id c.id
+      json.circuitid c.id
       json.distance c.distance
       json.description c.description
       json.note c.note

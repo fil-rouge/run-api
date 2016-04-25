@@ -4,7 +4,7 @@ json.data do
     json.attributes do
       json.name @group.name
       json.description @group.description
-      json.created_at @group.created_at
-      json.admin_id @group.admin_id
+      json.createdat @group.created_at
+      json.adminid @group.admin_id
   end
 end

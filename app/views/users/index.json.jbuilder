@@ -7,11 +7,11 @@ json.data do
       json.surname u.surname
       json.email u.email
       json.age u.age
-      json.phoneNumber u.phone_number
-      json.lastSignInAt u.last_sign_in_at
-      json.createdAt u.created_at
-      json.signInCount u.sign_in_count
-      json.lastSignInIp u.last_sign_in_ip
+      json.phonenumber u.phone_number
+      json.lastsigninat u.last_sign_in_at
+      json.createdat u.created_at
+      json.signincount u.sign_in_count
+      json.lastsigninip u.last_sign_in_ip
     end
   end
 end

@@ -5,7 +5,7 @@ json.data do
     json.attributes do
       json.name g.name
       json.description g.description
-      json.created_at g.created_at
+      json.createdat g.created_at
     end
   end
 end

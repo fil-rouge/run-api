@@ -11,7 +11,7 @@ json.data do
     json.createdat @user.created_at
     json.signincount @user.sign_in_count
     json.lastsigninip @user.last_sign_in_ip
-    json.totalsistance @user.get_stats[:total_distance]
+    json.totaldistance @user.get_stats[:total_distance]
     json.totaltime @user.get_stats[:total_time]
     json.circuitsnumber @user.get_stats[:circuits_number]
   end

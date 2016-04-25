@@ -2,7 +2,7 @@ json.data do
   json.id @circuit.id
   json.type "circuits"
   json.attributes do
-    json.circuit_id @circuit.id
+    json.circuitid @circuit.id
     json.distance @circuit.distance
     json.description @circuit.description
     json.note @circuit.note
