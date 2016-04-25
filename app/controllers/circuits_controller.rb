@@ -20,11 +20,11 @@ class CircuitsController < AuthenticateController
       group_params[:points].map  do |i|
         points << Point.create(:latitude => i[:latitude], :longitude => i[:longitude])
       end
-
+      # TODO : CLEAN THAT FUCKING CODE
       create_params = group_params
       create_params[:points] = points
       create_params[:users] = [current_user]
-      byebug
+
       @circuit = Circuit.create(create_params)
       if !@circuit.nil?
         @circuit
