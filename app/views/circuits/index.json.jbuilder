@@ -9,6 +9,8 @@ json.data do
       json.note c.note
       json.time c.time
       json.date c.date
+      json.nbrun c.nbRun
+      json.title c.title
     end
     json.relationships do
       json.points do

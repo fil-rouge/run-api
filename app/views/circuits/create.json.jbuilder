@@ -8,6 +8,8 @@ json.data do
     json.note @circuit.note
     json.time @circuit.time
     json.date @circuit.date
+    json.nbrun @circuit.nbRun
+    json.title @circuit.title
   end
   json.relationships do
     json.points do
