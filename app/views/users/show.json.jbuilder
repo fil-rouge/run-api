@@ -6,13 +6,13 @@ json.data do
     json.surname @user.surname
     json.email @user.email
     json.age @user.age
-    json.phoneNumber @user.phone_number
-    json.lastSignInAt @user.last_sign_in_at
-    json.createdAt @user.created_at
-    json.signInCount @user.sign_in_count
-    json.lastSignInIp @user.last_sign_in_ip
-    json.totalDistance @user.get_stats[:total_distance]
-    json.totalTime @user.get_stats[:total_time]
-    json.circuitsNumber @user.get_stats[:circuits_number]
+    json.phonenumber @user.phone_number
+    json.lastsigninat @user.last_sign_in_at
+    json.createdat @user.created_at
+    json.signincount @user.sign_in_count
+    json.lastsigninip @user.last_sign_in_ip
+    json.totalsistance @user.get_stats[:total_distance]
+    json.totaltime @user.get_stats[:total_time]
+    json.circuitsnumber @user.get_stats[:circuits_number]
   end
 end
