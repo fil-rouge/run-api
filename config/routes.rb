@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get '/users/:user_id/circuits/:id' => 'circuits#show'
   get '/users/:user_id/circuits' => 'circuits#index'
+  post '/users/:user_id/circuits' => 'circuits#create'
   patch '/users/:user_id/circuits/:id' => 'circuits#update'
   put '/users/:user_id/circuits/:id' => 'circuits#update'
   delete '/users/:user_id/circuits/:id' => 'circuits#destroy'

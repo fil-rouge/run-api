@@ -12,10 +12,20 @@ class CircuitsController < AuthenticateController
 
   def create
      #  TODO: TEST
-    users_id = group_params[:users].to_i  || []
+    users_id = params[:circuit][:users].first[:id].to_i  || nil
     users_id = params[:user_id].to_i  if !params[:user_id].blank?
-    if !users_id.blank? && users_id.first == current_user.id
-      @circuit = Circuit.create(group_params)
+    if !users_id.blank? && users_id == current_user.id
+
+    points = []
+      group_params[:points].map  do |i|
+        points << Point.create(:latitude => i[:latitude], :longitude => i[:longitude])
+      end
+
+      create_params = group_params
+      create_params[:points] = points
+      create_params[:users] = [current_user]
+      byebug
+      @circuit = Circuit.create(create_params)
       if !@circuit.nil?
         @circuit
       else
@@ -81,6 +91,6 @@ class CircuitsController < AuthenticateController
 private
 
   def group_params
-      params.require(:group).permit(:id, :distance, :note, :date, :description, :time, :users)
+      params.require(:circuit).permit(:id, :distance, :note, :date, :description, :time, {:users => [:id]}, :user, {:points => [:latitude, :longitude]})
   end
 end
