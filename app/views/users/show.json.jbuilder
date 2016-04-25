@@ -34,8 +34,8 @@ json.data do
                     json.type "points"
                     json.id p.id
                     json.attributes do
-                      json.latitude p.latitude
-                      json.longitude p.longitude
+                      json.lat p.latitude
+                      json.lng p.longitude
                     end
                   end
                 end
