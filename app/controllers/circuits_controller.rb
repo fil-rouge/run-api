@@ -91,6 +91,6 @@ class CircuitsController < AuthenticateController
 private
 
   def group_params
-      params.require(:circuit).permit(:id, :distance, :note, :date, :description, :time, {:users => [:id]}, :user, {:points => [:latitude, :longitude]})
+      params.require(:circuit).permit(:id, :distance, :note, :date, :description, :time, {:users => [:id]}, :user, {:points => [:lat, :lng]})
   end
 end

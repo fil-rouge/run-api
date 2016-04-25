@@ -45,13 +45,13 @@ curl https://orunginal-api.herokuapp.com/circuits
 
 _create a circuit_
 ```
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 15' -H 'token: ghdKjKG9sUgd2xjfB_7u' -X POST localhost:3000/circuits -d "{\"circuit\":{\"distance\":\"424242\",\"description\":\"c'est mon circuit\", \"note\":\"20\", \"users\":[{\"id\":\"15\"}] ,\"points\" : [{\"latitude\":\"1\", \"longitude\":\"2\"}, {\"latitude\":\"1\", \"longitude\":\"2\"}]}}"
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 15' -H 'token: ghdKjKG9sUgd2xjfB_7u' -X POST localhost:3000/circuits -d "{\"circuit\":{\"distance\":\"424242\",\"description\":\"c'est mon circuit\", \"note\":\"20\",\"time\":100 , \"users\":[{\"id\":\"15\"}] ,\"points\" : [{\"lat\":\"1\", \"lng\":\"2\"}, {\"lat\":\"1\", \"lng\":\"2\"}]}}"
 ```
 
 or
 
 ```
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 15' -H 'token: ghdKjKG9sUgd2xjfB_7u' -X POST localhost:3000/users/15/circuits -d "{\"circuit\":{\"distance\":\"424242\",\"description\":\"c'est mon circuit\", \"note\":\"20\", \"users\":[{\"id\":\"15\"}] ,\"points\" : [{\"latitude\":\"1\", \"longitude\":\"2\"}, {\"latitude\":\"1\", \"longitude\":\"2\"}]}}"
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 15' -H 'token: ghdKjKG9sUgd2xjfB_7u' -X POST localhost:3000/users/15/circuits -d "{\"circuit\":{\"distance\":\"424242\",\"description\":\"c'est mon circuit\", \"note\":\"20\", \"users\":[{\"id\":\"15\"}] ,\"points\" : [{\"lat\":\"1\", \"lng\":\"2\"}, {\"lat\":\"1\", \"lng\":\"2\"}]}}"
 ```
 
 
