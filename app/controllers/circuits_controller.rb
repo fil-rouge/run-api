@@ -12,7 +12,8 @@ class CircuitsController < AuthenticateController
 
   def create
      #  TODO: TEST
-    users_id = group_params[:users].to_i || params[:user_id] || []
+    users_id = group_params[:users].to_i  || []
+    users_id = params[:user_id].to_i  if !params[:user_id].blank?
     if !users_id.blank? && users_id.first == current_user.id
       @circuit = Circuit.create(group_params)
       if !@circuit.nil?
