@@ -2,8 +2,8 @@ class AuthenticateController < ApplicationController
   # before_action :authenticate_user_from_token! # =>  only user authenticated can have acces to that controller
   before_action :authenticate_api_from_api_token! # =>  only user authenticated can have acces to that controller
   SALT = {
-    "ember" => "",
-    "angular" => ""
+    "ember" => "coucou",
+    "angular" => "coucou"
   }
 
 
@@ -40,7 +40,7 @@ class AuthenticateController < ApplicationController
 
   def invalidate_token token
     api_token = Api_token.find_by(token: token)
-    salt = api_token == 'ember' ?  SALT_EMBER
+    salt =  salt[api_token.api]
     api_token.token = Digest::SHA2.new << token + salt[api_token.api]
   end
 end

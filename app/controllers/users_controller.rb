@@ -52,6 +52,11 @@ class UsersController < AuthenticateController
     end
   end
 
+
+  def get_token
+
+  end
+
 private
   def user_params
       params.require(:user).permit(:name, :surname, :email, :password, :password_confirmation, :age, :phone_number)

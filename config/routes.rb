@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 # user
+  get '/users/get_token' => 'users#get_token'
   get '/users/:id' => 'users#show'
   get '/users' => 'users#index'
   patch '/users/:id' => 'users#update'
