@@ -28,9 +28,9 @@ class AuthenticateController < ApplicationController
   end
 
   def authenticate_api_from_api_token!
-    api_token = request.headers["HTTP_API_TOKEN"].presence
+    api_token = request.headers["HTTP_API_KEY"].presence
     tok = Api_token.all
-    tokens = tok.each { |k| k[:token]}
+    tokens = tok.map { |k| k[:token]}
     if tokens.include? api_token
       return
     else

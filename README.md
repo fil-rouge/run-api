@@ -67,6 +67,10 @@ _create a group_
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 20' -H 'token: cxjC-2JhQgzzuTzEVDrV' -X POST https://orunginal-api.herokuapp.com/groups -d "{\"group\":{\"name\":\"ccacaca\",\"description\":\"c'est mon groupe\", \"admin_id\":\"20\"}}"
 ```
 
+failed api token
+```
+curl -v -H 'API_KEY: coucou' https://orunginal-api.herokuapp.com/circuits
+```
 
 ## DEPLOYEMENT
 
