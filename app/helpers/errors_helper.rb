@@ -14,7 +14,7 @@ module ErrorsHelper
   def self.json_error(symbol = :unknown_error, code = 000)
     symbol = (ERROR.keys.include? symbol) ? symbol : :unknown_error
     {
-      :error => {
+      :errors => {
         :message => ERROR[symbol],
         :code => code
       }
