@@ -5,7 +5,7 @@
       t.integer :note
       t.datetime :date
       t.string :description
-      t.datetime :time
+      t.integer :time
       t.timestamps null: false
     end
   end

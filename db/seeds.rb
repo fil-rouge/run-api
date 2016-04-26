@@ -12,12 +12,12 @@
   p4 = Point.create(latitude: 8, longitude: 4)
 
   # Circuits
-  c1 = Circuit.create(distance: 2000, note: 4,  description: "c'est dur lol", points: [p1,p2])
-  c2 = Circuit.create(distance: 50, note: 4,  description: "easy", points: [p1,p2])
-  c3 = Circuit.create(distance: 42000, note: 5,  description: "c'est un marathon", points: [p1,p2])
+  c1 = Circuit.create(distance: 2000, note: 4,  description: "c'est sacrement dur !", points: [p1,p2], title: "Mon circuit quotidien", time: 3600)
+  c2 = Circuit.create(distance: 5000, note: 4,  description: "easy", points: [p1,p2], title: "Mon grand circuit", time: 3456)
+  c3 = Circuit.create(distance: 42000, note: 5,  description: "c'est un sacré marathon !", points: [p1,p2], title: "Mon premier marathon", time:4573)
 
   # Users
-  user = User.create(email: 'test@test.com', password: 'password',name: 'default_name',surname: 'default_surname', circuits: [c1,c2,c3])
+  user = User.create(email: 'test@test.com', password: 'password',name: 'Quentin',surname: 'Bayart', circuits: [c1,c2,c3])
   user = User.create(email: 'test1@test.com', password: 'password',name: 'default_name',surname: 'default_surname', circuits: [c1,c2,c3])
 
   # # Groups
