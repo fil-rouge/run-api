@@ -69,7 +69,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'us
 
 failed api token
 ```
-curl -v -H 'API_KEY: coucou' https://orunginal-api.herokuapp.com/circuits
+curl -v -H 'API_KEY: change_me_at_prod1' https://orunginal-api.herokuapp.com/circuits
 ```
 
 ## DEPLOYEMENT

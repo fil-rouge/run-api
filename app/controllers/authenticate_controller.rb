@@ -1,11 +1,11 @@
 class AuthenticateController < ApplicationController
   # before_action :authenticate_user_from_token! # =>  only user authenticated can have acces to that controller
   before_action :authenticate_api_from_api_token! # =>  only user authenticated can have acces to that controller
+
   SALT = {
     "ember" => "coucou",
     "angular" => "coucou"
   }
-
 
 
   protected

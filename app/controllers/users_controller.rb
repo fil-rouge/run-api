@@ -54,7 +54,19 @@ class UsersController < AuthenticateController
 
 
   def get_token
-
+    token = request.headers['token'].presence
+    user = User.find_by(authentication_token: token)
+    if user
+      if user.is_token_valid?
+        render json: {data: {token: user.temporary_token} }
+      else
+        token = user.generate_temporary_token
+        user.update_attributes(:temporary_token => token, :previous_temporary_token_date => DateTime.now)
+        render json: {data: {token: token} }
+      end
+    else
+      render json: ErrorsHelper.json_error
+    end
   end
 
 private

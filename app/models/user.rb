@@ -29,12 +29,27 @@ class User < ActiveRecord::Base
             :numericality => { :greater_than => 0 },
             :allow_blank => true
 
+  #  30 minutes of delta
+  VALIDATION_DELTA = 60 * 30
+
   def get_stats
     return {
       :circuits_number => self.circuits.size,
       :total_distance => self.circuits.inject(0){|sum,x| sum + x.distance },
       :total_time => self.circuits.inject(0){|sum,x| x.time == nil ? sum : sum + x.time}
     }
+  end
+
+  def is_token_valid?
+    return false if (DateTime.now.to_time - self.previous_temporary_token_date.to_time).to_i > VALIDATION_DELTA
+    true
+  end
+
+  def generate_temporary_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(temporary_token: token).first
+    end
   end
 
   private
