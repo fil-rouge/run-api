@@ -3,7 +3,7 @@
 
 _create a new session_
 ```
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST https://orunginal-api.herokuapp.com/users/sign_in -d "{\"user\":{\"email\":\"test@test.com\",\"password\":\"password\"}}"
+curl -v -H 'API_KEY: change_me_at_prod1' -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST https://orunginal-api.herokuapp.com/users/sign_in -d "{\"user\":{\"email\":\"test@test.com\",\"password\":\"password\"}}"
 ```
 
 ## USERS
@@ -11,28 +11,28 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -X POS
 
 _create a new account/user_
 ```
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST https://orunginal-api.herokuapp.com/users -d "{\"user\":{\"email\":\"test@test.com\",\"password\":\"password\"}}"
+curl -v -H 'API_KEY: change_me_at_prod1' -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST https://orunginal-api.herokuapp.com/users -d "{\"user\":{\"email\":\"test@test.com\",\"password\":\"password\"}}"
 ```
 
 
 _get a user_ (pretty print in terminal)
 ```
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 2' -H 'token: 447hXkTzyj6j19JDcun8' -X GET https://orunginal-api.herokuapp.com/users/2  | python -m json.tool
+curl -v -H 'API_KEY: change_me_at_prod1' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 2' -H 'token: 447hXkTzyj6j19JDcun8' -X GET https://orunginal-api.herokuapp.com/users/2  | python -m json.tool
 ```
 
 _update a user_
 ```
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 11' -H 'token: jcqL7ggms3gZu5HSj8ob' -X PUT https://orunginal-api.herokuapp.com/users/11 -d "{\"user\":{\"email\":\"lol@lol.com\", \"name\":\"lol\" ,\"password\":\"password\"}}" | python -m json.tool
+curl -v -H 'API_KEY: change_me_at_prod1' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 11' -H 'token: jcqL7ggms3gZu5HSj8ob' -X PUT https://orunginal-api.herokuapp.com/users/11 -d "{\"user\":{\"email\":\"lol@lol.com\", \"name\":\"lol\" ,\"password\":\"password\"}}" | python -m json.tool
 ```
 
 _get all users_
 ```
-curl https://orunginal-api.herokuapp.com/users | python -m json.tool
+curl -H 'API_KEY: change_me_at_prod1' https://orunginal-api.herokuapp.com/users | python -m json.tool
 ```
 
 _Destroy a user_
 ```
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 20' -H 'token: cxjC-2JhQgzzuTzEVDrV' -X DELETE https://orunginal-api.herokuapp.com/users/20  | python -m json.tool
+curl -v -H 'API_KEY: change_me_at_prod1' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 20' -H 'token: cxjC-2JhQgzzuTzEVDrV' -X DELETE https://orunginal-api.herokuapp.com/users/20  | python -m json.tool
 ```
 
 
@@ -40,18 +40,18 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'us
 
 _get all circuits_
 ```
-curl https://orunginal-api.herokuapp.com/circuits
+curl -H 'API_KEY: change_me_at_prod1' https://orunginal-api.herokuapp.com/circuits
 ```
 
 _create a circuit_
 ```
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 15' -H 'token: ghdKjKG9sUgd2xjfB_7u' -X POST localhost:3000/circuits -d "{\"circuit\":{\"distance\":\"424242\",\"description\":\"c'est mon circuit\", \"note\":\"20\",\"time\":100 , \"users\":[{\"id\":\"15\"}] ,\"points\" : [{\"lat\":\"1\", \"lng\":\"2\"}, {\"lat\":\"1\", \"lng\":\"2\"}]}}"
+curl -v  -H 'API_KEY: change_me_at_prod1' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 15' -H 'token: ghdKjKG9sUgd2xjfB_7u' -X POST localhost:3000/circuits -d "{\"circuit\":{\"distance\":\"424242\",\"description\":\"c'est mon circuit\", \"note\":\"20\",\"time\":100 , \"users\":[{\"id\":\"15\"}] ,\"points\" : [{\"lat\":\"1\", \"lng\":\"2\"}, {\"lat\":\"1\", \"lng\":\"2\"}]}}"
 ```
 
 or
 
 ```
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 15' -H 'token: ghdKjKG9sUgd2xjfB_7u' -X POST localhost:3000/users/15/circuits -d "{\"circuit\":{\"distance\":\"424242\",\"description\":\"c'est mon circuit\", \"note\":\"20\", \"users\":[{\"id\":\"15\"}] ,\"points\" : [{\"lat\":\"1\", \"lng\":\"2\"}, {\"lat\":\"1\", \"lng\":\"2\"}]}}"
+curl -v -H 'API_KEY: change_me_at_prod1' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 15' -H 'token: ghdKjKG9sUgd2xjfB_7u' -X POST localhost:3000/users/15/circuits -d "{\"circuit\":{\"distance\":\"424242\",\"description\":\"c'est mon circuit\", \"note\":\"20\", \"users\":[{\"id\":\"15\"}] ,\"points\" : [{\"lat\":\"1\", \"lng\":\"2\"}, {\"lat\":\"1\", \"lng\":\"2\"}]}}"
 ```
 
 
@@ -59,12 +59,12 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'us
 
 _get all groups_
 ```
-curl https://orunginal-api.herokuapp.com/groups
+curl -H 'API_KEY: change_me_at_prod1' https://orunginal-api.herokuapp.com/groups
 ```
 
 _create a group_
 ```
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 20' -H 'token: cxjC-2JhQgzzuTzEVDrV' -X POST https://orunginal-api.herokuapp.com/groups -d "{\"group\":{\"name\":\"ccacaca\",\"description\":\"c'est mon groupe\", \"admin_id\":\"20\"}}"
+curl -v -H 'API_KEY: change_me_at_prod1' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'user_id: 20' -H 'token: cxjC-2JhQgzzuTzEVDrV' -X POST https://orunginal-api.herokuapp.com/groups -d "{\"group\":{\"name\":\"ccacaca\",\"description\":\"c'est mon groupe\", \"admin_id\":\"20\"}}"
 ```
 
 failed api token
