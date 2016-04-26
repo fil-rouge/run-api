@@ -3,6 +3,7 @@
   User.delete_all
   Group.delete_all
   Circuit.delete_all
+  Api_token.delete_all
 
   # Points
   p1 = Point.create(latitude: 1, longitude: 1)
@@ -23,3 +24,7 @@
   g1 = Group.create( name: "Les copains", description: "c'est un groupe entre copain pour aller courrir lol", admin: user)
   g2 = Group.create( name: "Remi", description: "c'est le groupe de remi sans ami", admin: user)
   g3 = Group.create( name: "empty group", description: "c'est un groupe vide", admin: user)
+
+  # api key
+  Api_token.create(api: "ember", iteration: "0", token: "change_me_at_prod1")
+  Api_token.create(api: "angular", iteration: "0", token: "change_me_at_prod2")

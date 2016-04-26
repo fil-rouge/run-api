@@ -7,12 +7,18 @@ module ErrorsHelper
     :name_already_used => "this name is already taken !",
     :bad_user_id => "you can not make that action for an other user",
     :bad_id => "not found with that ID",
-    :not_admin => "This action in forbiden because you're not admin"
+    :not_admin => "This action in forbiden because you're not admin",
+    :bad_api_key => "This api key is not accepted by the server"
   }
 
-  def self.json_error(symbol = :unknown_error)
+  def self.json_error(symbol = :unknown_error, code = 000)
     symbol = (ERROR.keys.include? symbol) ? symbol : :unknown_error
-    { :error => ERROR[symbol] }
+    {
+      :error => {
+        :message => ERROR[symbol],
+        :code => code
+      }
+    }
   end
 
 end
